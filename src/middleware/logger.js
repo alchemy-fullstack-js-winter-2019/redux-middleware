@@ -1,3 +1,4 @@
+/*eslint-disable no-console*/
 
 export const logger = store => next => action => {
   console.log('INCOMING ACTION', action);
