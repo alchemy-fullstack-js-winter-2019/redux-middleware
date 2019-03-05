@@ -1,5 +1,8 @@
-export const defaultEquality = (a, b) => {
-  if(a === b) return true;
-  else return false;
+export const defaultEquality = (prevArguments, newArguments) => {
+  for(let i = 0; i < prevArguments.length; i++) {
+    if(prevArguments[i] !== newArguments[i]) return false;
+  }
+  return true;
 };
+
 
