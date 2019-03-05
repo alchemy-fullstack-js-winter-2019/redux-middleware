@@ -4,6 +4,18 @@ export function defaultEquality(prevArguments, newArguments) {
   });
 }
 
-export function memoize(memoizeFunction, equalityFunction) {
-  
+export function memoize(fn, equalityFn = defaultEquality) {
+  let lastArguments = null;
+  let lastResult = null;
+
+  return function(...currentArguments) {
+    if(lastArguments && equalityFn(lastArguments, currentArguments)) {
+      return lastResult;
+    }
+
+    lastArguments = currentArguments;
+    lastResult = fn(...currentArguments);
+
+    return lastResult;
+  }
 }

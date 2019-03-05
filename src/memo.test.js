@@ -1,4 +1,4 @@
-import { defaultEquality } from './memo';
+import { defaultEquality, memoize } from './memo';
 
 describe('default equality', () => {
   it('can tell if arguments are the same', () => {
@@ -19,3 +19,26 @@ describe('default equality', () => {
     expect(defaultEquality(prevArguments, newArguments)).toEqual(false);
   })
 })
+
+describe('memoize function', () => {
+  it('memoizes a function', () => {
+    const fn = jest.fn();
+    const memo = memoize(fn);
+    
+    memo(1, 2, 3);
+    memo(1, 2, 3);
+    
+    expect(fn).toBeCalledTimes(1);
+
+    memo(1, 5);
+    memo(1, 5);
+    memo(1, 5);
+    
+    expect(fn).toBeCalledTimes(2);
+
+    memo(2, 5);
+    memo(2, 7);
+
+    expect(fn).toBeCalledTimes(4);
+  });
+});
