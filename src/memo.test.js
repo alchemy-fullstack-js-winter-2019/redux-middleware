@@ -39,5 +39,34 @@ describe('memo', () => {
     
       expect(reactPropsEquality(prevProps, newProps)).toBeTruthy();
     });
+    it('checks for prop inequality', () => {
+      const prevProps = {
+        a: 1,
+        b: 2,
+        c: 3
+      };
+      const newProps = {
+        b: 1,
+        a: 2,
+        c: 3
+      };
+    
+      expect(reactPropsEquality(prevProps, newProps)).toBeFalsy();
+    });
+    it('checks for prop length equality', () => {
+      const prevProps = {
+        a: 1,
+        b: 2,
+        c: 3
+      };
+      const newProps = {
+        b: 1,
+        a: 2,
+        c: 3,
+        d: 4
+      };
+    
+      expect(reactPropsEquality(prevProps, newProps)).toBeFalsy();
+    });
   });
 });
