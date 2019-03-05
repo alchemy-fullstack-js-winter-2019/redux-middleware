@@ -18,7 +18,6 @@ describe('logging in middleware', () => {
     };
 
     logger(store)(next)(action);
-    expect(console.log).toHaveBeenCalledWith('hi'
-    );
+    expect(console.log).toHaveBeenCalledWith('hi');
   });
 });

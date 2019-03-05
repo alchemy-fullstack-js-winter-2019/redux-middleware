@@ -20,7 +20,7 @@ describe('test if memo func works', () => {
     const fn = jest.fn();
     const memo = memoize(fn);
     memo(1, 2, 3);
-    memo(1 ,2, 3);
+    memo(1, 2, 3);
     expect(fn).toBeCalledTimes(1);
   });
 });
