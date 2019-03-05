@@ -3,8 +3,8 @@ export const logger = store => next => action => {
   const preState = store.getState();
   next(action);
   const nextState = store.getState();
-  if(preState != nextState) {
-    console.log('state updated', nextState);
+  if(preState !== nextState) {
+    console.log('state updated', action);
   }
 };
 
