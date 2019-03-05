@@ -12,3 +12,20 @@ export function reactPropsEquality(props, prevProps) {
     return prop === newProps[i];
   })
 }
+
+// const memo = memoize(fn) sets memoize to only call the internal function therefore lastArguments will not be null the next time around
+export function memoize(fn, equalityfn = defaultEquality) {
+  let lastArguments = null;
+  let lastResult = null;
+
+  return function(...currentArguments) {
+    if(lastArguments && equalityfn(lastArguments, currentArguments)) {
+      return lastResult;
+    }
+
+    lastArguments = currentArguments;
+    lastResult = fn(...currentArguments);
+  
+    return lastResult;
+  }; 
+}

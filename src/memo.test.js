@@ -1,4 +1,4 @@
-import { defaultEquality, reactPropsEquality } from './memo';
+import { defaultEquality, reactPropsEquality, memoize } from './memo';
 
 describe('memo', () => {
   describe('defaultEquality', () => {
@@ -67,6 +67,18 @@ describe('memo', () => {
       };
     
       expect(reactPropsEquality(prevProps, newProps)).toBeFalsy();
+    });
+  });
+
+  describe('memoize', () => {
+    it('memoizes a function', () => {
+      const fn = jest.fn();
+      const memo = memoize(fn);
+
+      memo(1, 2, 3);
+      memo(1, 2, 3);
+
+      expect(fn).toBeCalledTimes(1);
     });
   });
 });
