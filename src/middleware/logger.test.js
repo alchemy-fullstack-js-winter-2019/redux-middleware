@@ -1,4 +1,4 @@
-import { logger } from './middleware/logger';
+import { logger } from './logger';
 
 describe('logging middleware', () => {
   it('logs an action', () => {
