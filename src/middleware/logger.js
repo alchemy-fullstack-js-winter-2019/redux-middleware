@@ -1,6 +1,13 @@
-const myMiddleware = store => next => action => {
-    console.log('dispatcing', action )
-    let result = next(action);
-    console.log('updated state', store.getState());
-    return result
+export const logger = store => next => action => {
+  console.log('INCOMING ACTION', action);
+
+  const prevState = store.getState();
+
+  next(action);
+
+  const nextState = store.getState();
+  
+  if(prevState !== nextState) {
+    console.log('STATE UPDATED', nextState);
+  }
 };
