@@ -1,4 +1,4 @@
-import { defaultEquality } from './memo';
+import { defaultEquality, memoize } from './memo';
 
 describe('Memo tests', () => {
   it('tests defaultEqaulity function', () => {
@@ -7,6 +7,15 @@ describe('Memo tests', () => {
 
     expect(trueResult).toBeTruthy();
     expect(falseResult).toBeFalsy();
+  });
+  it('tests memoize function', () => {
+    const fn = jest.fn();
+    const memo = memoize(fn);
+
+    memo(1, 2, 3);
+    memo(1, 2, 3);
+    
+    expect(fn).toBeCalledTimes(1);
   });
 });
 
