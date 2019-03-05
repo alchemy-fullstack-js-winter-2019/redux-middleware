@@ -1,3 +1,9 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import {  } 
+import 
 
-export default createStore(() => ({}));
+export default createStore((
+  reducer,
+  applyMiddleware(
+    logger)
+);

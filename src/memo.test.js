@@ -10,7 +10,7 @@ describe('Memo', () => {
     it('can tell if arguments are the same value', () => {
       const prevArg = [1, 2, 3];
       const nextArg = [ 1, 2, 4];
-      expect(defaultEquality(prevArg, nextArg)).toEqual(false);
+      expect(defaultEquality(prevArg, nextArg)).toBeFalsy();
     });
     it('can tell if arguments are different because of length', () => {
       const prevArg = [1, 2, 3];
