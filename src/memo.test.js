@@ -79,6 +79,11 @@ describe('memo', () => {
       memo(1, 2, 3);
 
       expect(fn).toBeCalledTimes(1);
+
+      memo(1, 2, 3);
+      memo(1, 2, 3);
+
+      expect(fn).toBeCalledTimes(1);      
     });
   });
 });
