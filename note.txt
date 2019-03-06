@@ -1,0 +1,16 @@
+MiddleWare
+- function that takes a store as an argument takes next as an argument and takes an action as another function
+- any fucntion that happends between actions and reducer
+- logger log every time action 
+- will use middleware to do asych action
+- Eventually, actions to check payload or action to see if it's a function to see if we need to do it asych
+- all actions go through middleware
+- Thunk middleware  
+  - expects dispatches to be functions - if action is a function
+  - if it's a function it will do some other things, if not a function calls next and behaves normally
+- 
+
+Actions can be functions that take dispatch - they take dispatch because they can dispatch plan 
+
+thunk middleware checks if it's a function or not
+when function invoked makes API call and dispatched a synchronouse action
