@@ -1,5 +1,6 @@
-import { logger } from '../logger';
-import { thunk } from '../thunk';
+import { thunk } from '../middleware/thunk';
+import { logger } from '../middleware/logger';
+
 
 
 
