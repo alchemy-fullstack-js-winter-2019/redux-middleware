@@ -1,5 +1,5 @@
-import { connect } from 'react-redux';
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { getFacts, getLoading } from '../../selectors/ron';
 import Facts from '../../components/facts/Facts';
 import PropTypes from 'prop-types';
