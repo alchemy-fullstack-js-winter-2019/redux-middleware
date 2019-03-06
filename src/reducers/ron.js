@@ -11,5 +11,7 @@ export default function reducer(state = initialState, { type, payload }) {
         ...state,
         ronFacts: payload
       });
+    default: 
+      return state;
   }
 }

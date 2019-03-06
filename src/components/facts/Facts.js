@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Facts({ facts, fetch }) {
   const factsList = facts.map((fact, i) => {
-    return <li onChange={fetch} key={i}>{fact}</li>;
+    return <li fetch={fetch} key={i}>{fact}</li>;
   });
   return (
     <ul>
