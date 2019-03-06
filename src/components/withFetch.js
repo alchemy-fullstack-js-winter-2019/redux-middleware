@@ -8,7 +8,7 @@ export const withFetch = Component => {
     };
 
     componentDidMount() {
-      this.props.fetch();
+      this.props.fetch(10);
     }
 
     render() {

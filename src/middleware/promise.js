@@ -4,26 +4,40 @@ export const isPromise = payload => {
   return Promise.resolve(payload) === payload;
 };
 
-export const promiseMiddleware = store => next => action => {
+export const LOAD_START = 'LOAD_START';
+export const LOAD_END = 'LOAD_END';
+export const PROMISE_ERROR = 'PROMISE_ERROR';
+
+export const promiseMiddleware = ({ dispatch }) => next => (action) => {
+  const {
+    type,
+    loadStart = LOAD_START,
+    loadEnd = LOAD_END,
+    errorType = PROMISE_ERROR
+  } = action;
+
   if(!isPromise(action.payload)) {
     next(action);
   }
   else {
-    store.dispatch({ type: 'LOAD_START' });
+    dispatch({ type: loadStart });
     action.payload
-      .then(res => {
-        store.dispatch({
-          type: 'LOAD_END',
+      .then(payload => {
+        dispatch({
+          type,
+          payload
         });
-        store.dispatch({
-          type: action.type,
-          payload: res
+        dispatch({
+          type: loadEnd,
         });
       })
       .catch(error => {
-        store.dispatch({
-          type: 'LOAD_END',
+        dispatch({
+          type: errorType,
           payload: error
+        });
+        dispatch({
+          type: loadEnd,
         });
       });
   }
