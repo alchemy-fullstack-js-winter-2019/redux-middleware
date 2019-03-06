@@ -20,7 +20,7 @@ class AllFacts extends PureComponent {
     facts: PropTypes.array.isRequired,
     fetch: PropTypes.func.isRequired
   };
-
+  //fetch has to be passed through line 13, and 25 and its a proptype.
   componentDidMount() {
     this.props.fetch(100);
   }
