@@ -20,8 +20,7 @@ class AllFacts extends PureComponent {
   render() {
     return (
       <>
-        {this.props.loading === true && <p className={styles.loading}>loading...</p>}
-        {this.props.loading === false && <Facts facts={this.props.facts}/>}
+        {this.props.loading ? <p className={styles.loading}>loading...</p> : <Facts facts={this.props.facts}/>}
       </>
     );
   }
