@@ -1,3 +1,4 @@
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getFacts } from '../selectors/ron';
 import { fetchFacts } from '../actions/fetchFacts';
@@ -12,7 +13,7 @@ class Allfacts extends PureComponent {
   }
   render() {
     return{
-      
+
     }
   }
 }
