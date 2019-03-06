@@ -2,14 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Facts({ facts }) {
-  console.log(facts);
+  const factList = facts.map((fact, i) => {
+    return (
+      <li key={i}>{fact}</li>
+    );
+  });
   return (
-    <p>{facts}</p>
+    <ul>
+      {factList}
+    </ul>
   );
 }
 
 Facts.propTypes = {
-  facts: PropTypes.object.isRequired
+  facts: PropTypes.array.isRequired
 };
 
 export default Facts;

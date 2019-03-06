@@ -5,7 +5,7 @@ import { fetchFacts, FETCH_FACTS } from './ron';
 jest.mock('../services/ronApi.js');
 
 describe('ron action', () => {
-  it('fetchFacts', () => {
+  it('fetchFacts', done => {
     const reducer = jest.fn();
     const store = createStore(
       reducer,
@@ -14,10 +14,11 @@ describe('ron action', () => {
     store.dispatch(fetchFacts(10));
 
     setTimeout(() => {
-      expect(reducer).hasBeenCalledWith({
+      expect(reducer).toHaveBeenCalledWith(undefined, {
         type: FETCH_FACTS,
         payload: ['my fact']
-      }, 500);
-    });
+      });
+      done();
+    }, 500);
   });
 });
