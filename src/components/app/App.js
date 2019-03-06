@@ -1,5 +1,6 @@
 import React from 'react';
 import AllFacts from '../../containers/facts/AllFacts';
+import 'normalize.css';
 
 export default function App() {
   return (

@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { getFacts, getLoading } from '../../selectors/ron';
 import { fetchFacts } from '../../actions/ron';
 import Facts from '../../components/facts/Facts';
-// import Loading from '../../components/Loading';
+import Loading from '../../components/Loading';
 import PropTypes from 'prop-types';
 
 class AllFacts extends React.PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
   };
   
   componentDidMount() {
@@ -18,8 +19,10 @@ class AllFacts extends React.PureComponent {
 
   render() {
     return (
-      <Facts facts={this.props.facts}/>
-
+      <Fragment>
+        {this.props.loading === false && <Facts facts={this.props.facts}/>}
+        {this.props.loading === true && <Loading />}
+      </Fragment>
     );
   }
 }
