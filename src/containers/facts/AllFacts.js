@@ -1,26 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getFacts, getLoading } from '../../selectors/ron';
-import { fetchFacts, updateLoading } from '../../actions/ron';
+import { fetchFacts } from '../../actions/ron';
 import Facts from '../../components/facts/Facts';
+// import Loading from '../../components/Loading';
 import PropTypes from 'prop-types';
 
 class AllFacts extends React.PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
-    loading: PropTypes.func.isRequired,
     fetch: PropTypes.func.isRequired
   };
   
   componentDidMount() {
-    this.props.loading(true);
-    this.props.fetch(20)
-      .then(() => this.props.loading(false));
+    this.props.fetch(20);
   }
 
   render() {
     return (
       <Facts facts={this.props.facts}/>
+
     );
   }
 }
@@ -32,9 +31,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetch(count) {
     return fetchFacts(count)(dispatch);
-  },
-  loading(status) {
-    return updateLoading(status)(dispatch);
   }
 });
 
