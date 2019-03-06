@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const withFetch = Component => {
   class WithFetch extends PureComponent {
-    static PropTypes = {
+    static propTypes = {
       fetch: PropTypes.func.isRequired,
       isLoading: PropTypes.bool.isRequired
     };
