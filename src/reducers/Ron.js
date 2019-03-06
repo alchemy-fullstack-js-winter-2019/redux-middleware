@@ -1,7 +1,8 @@
 import { FETCH_FACTS } from '../actions/Ron';
 
 const initialState = {
-    facts: ['hello']
+    facts: ['hello'],
+    loading: false
 };  
 
 export default function reducer(state = initialState, action) {
