@@ -1,9 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { fetchFacts } from '../../action/ron';
+import { fetchFacts, updateLoading } from '../../action/ron';
 import Facts from '../../components/facts/Facts';
 import { connect } from 'react-redux';
-import { getFacts } from '../../selectors/ron';
+import { getFacts, getLoadingStatus } from '../../selectors/ron';
+import WithFetch from '../../components/facts/Loading';
+
+const LoadingWithFetch = WithFetch(Facts);
 
 class AllFacts extends PureComponent {
   static propTypes = {
@@ -18,19 +21,23 @@ class AllFacts extends PureComponent {
 
   render() {
     return (
-      <Facts {...this.props}/>
+      <LoadingWithFetch { ...this.props }/>
+      // <Facts {...this.props}/>
     );
   }
-
 }
 
 const mapStateToProps = state => ({
   facts: getFacts(state),
+  loading: getLoadingStatus(state)
 });
 
 const mapDispatchToProps = dispatch => ({
   fetch(count) {
     dispatch(fetchFacts(count));
+  },
+  loadFacts() {
+    dispatch(updateLoading(false));
   }
 });
 

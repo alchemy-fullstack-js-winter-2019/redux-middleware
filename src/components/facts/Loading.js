@@ -1,11 +1,11 @@
 import React from 'react';
 
-function withFetch(Component) {
+function WithFetch(Component) {
   // eslint-disable-next-line react/prop-types
   return function withLoading({ loading, ...props }) {
-    if(loading) return; (<Component {...props} />);
+    if(!loading) return (<Component {...props} />);
     return (<p>Hold up - fetching Ron!</p>);
   };
 }
 
-export default withFetch;
+export default WithFetch;
