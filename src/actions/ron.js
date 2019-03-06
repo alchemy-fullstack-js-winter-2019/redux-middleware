@@ -1,4 +1,4 @@
-import { getFacts } from '../services/__mocks__/ronApi';
+import { getFacts } from '../services/ronApi';
 
 export const FETCH_FACTS = 'FETCH_FACTS';
 

@@ -2,7 +2,6 @@ import { createStore, applyMiddleware } from 'redux';
 import { middleware } from '../middleware';
 import { fetchFacts, FETCH_FACTS } from './ron';
 
-
 jest.mock('../services/ronApi');
 describe('ron action', () => {
   it('fetchFacts creats an action where the payload is facts', () => {
