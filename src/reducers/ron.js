@@ -10,12 +10,13 @@ export default function reducer(state = initialState, action) {
     case FETCH_FACTS:
       return {
         ...state,
-        facts: action.payload
+        facts: action.payload,
+        loading: false
       };
     case UPDATE_LOADING:
       return {
         ...state,
-        loading: action.payload
+        loading: true
       };
     default: 
       return state;
