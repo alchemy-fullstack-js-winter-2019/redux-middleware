@@ -4,11 +4,13 @@ import { getFacts, getLoading } from '../../selectors/ron';
 import Facts from '../../components/facts/Facts';
 import PropTypes from 'prop-types';
 import { fetchFacts } from '../../action/ron';
+import styles from './AllFacts.css';
 
 class AllFacts extends PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
     fetch: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
@@ -18,8 +20,8 @@ class AllFacts extends PureComponent {
   render() {
     return (
       <>
-        {/* {loading && <p>loading is true</p>} */}
-        <Facts facts={this.props.facts}/>
+        {this.props.loading === true && <p className={styles.loading}>loading...</p>}
+        {this.props.loading === false && <Facts facts={this.props.facts}/>}
       </>
     );
   }

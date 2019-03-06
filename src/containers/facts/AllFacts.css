@@ -1,0 +1,12 @@
+.loading {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-size: 2.5em;
+}
+* {
+  font-family: sans-serif;
+  list-style: none;
+  text-align: center;
+  li {
+    padding: 10px;
+  }
+}
