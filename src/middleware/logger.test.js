@@ -10,6 +10,7 @@ describe('logging middleware', () => {
         };
       }
     };
+
     const next = jest.fn();
     const action = {
       type: 'UPDATE_TITLE',
@@ -18,6 +19,6 @@ describe('logging middleware', () => {
 
     logger(store)(next)(action);
 
-    expect(console.log).toHaveBeenCalledWith('INCOMMING ACTION', action.type);
+    expect(console.log).toHaveBeenCalledWith('INCOMING ACTION', action);
   });
 });
