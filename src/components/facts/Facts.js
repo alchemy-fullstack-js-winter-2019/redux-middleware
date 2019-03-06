@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Facts({ facts, fetch }) {
+export default function Facts({ facts }) {
   const factsList = facts.map((fact, i) => {
-    return <li fetch={fetch} key={i}>{fact}</li>;
+    return <li key={i}>{fact}</li>;
   });
   return (
     <ul>
@@ -14,5 +14,4 @@ export default function Facts({ facts, fetch }) {
 
 Facts.propTypes = {
   facts: PropTypes.array.isRequired,
-  fetch: PropTypes.func.isRequired
 };

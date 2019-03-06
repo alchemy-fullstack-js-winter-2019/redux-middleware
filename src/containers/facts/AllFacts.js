@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { fetchFacts } from '../../action/ron';
 import Facts from '../../components/facts/Facts';
-import { connect } from 'tls';
+import { connect } from 'react-redux';
 import { getFacts } from '../../selectors/ron';
 
 class AllFacts extends PureComponent {
@@ -12,7 +12,7 @@ class AllFacts extends PureComponent {
   };
 
   componentDidMount() {
-    this.props.fetch;
+    this.props.fetch(50);
   }
 
   render() {
@@ -28,8 +28,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch() {
-    dispatch(fetchFacts(100));
+  fetch(count) {
+    dispatch(fetchFacts(count));
   }
 });
 
