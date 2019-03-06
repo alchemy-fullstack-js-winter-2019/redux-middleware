@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { getFacts, isLoading } from '../../selectors/ron';
 import WithFetch from '../../components/facts/Loading';
 
-const LoadingWithFetch = WithFetch(Facts);
+const FetchFactsWithLoading = WithFetch(Facts);
 
 class AllFacts extends PureComponent {
   static propTypes = {
@@ -22,7 +22,7 @@ class AllFacts extends PureComponent {
   render() {
     return (
       <>
-      {<LoadingWithFetch { ...this.props } />}
+      {<FetchFactsWithLoading { ...this.props } />}
       </>
     );
   }
