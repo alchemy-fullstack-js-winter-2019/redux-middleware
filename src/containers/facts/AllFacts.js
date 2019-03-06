@@ -15,8 +15,6 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-
-
 class AllFacts extends PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
