@@ -1,29 +1,36 @@
-//TODO WRITE A CONTAINER BUCKO
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+import Facts from '../components/facts/Facts';
+import { connect } from 'react-redux';
+import { getFacts } from '../selectors/ron';
+import { fetchFacts } from '../actions/fetchFacts';
 
-// import React, { PureComponent } from 'react';
-// import { connect } from 'react-redux';
-// import { getFacts } from '../selectors/ron';
-// import { fetchFacts } from '../actions/fetchFacts';
 
+class AllFacts extends PureComponent {
+  static propTypes = {
+    facts: PropTypes.array.isRequired,
+    fetch: PropTypes.func.isRequired
 
-// class Allfacts extends PureComponent {
-//   static propTypes = {
+  }
+  componentDidMount() {
+    this.props.fetch();
+  }
+  render() {
+    return <Facts facts={this.props.facts} />;
+  }
+}
+const mapStateToProps = state => ({
+  facts: getFacts(state)
+});
 
-//   }
-//   componentDidMount() {
+const mapDispatchToProps = dispatch => ({
+  fetch() {
+    dispatch(fetchFacts(10));
+  }
+});
 
-//   }
-//   render() {
-//     return{
-
-//     }
-//   }
-// }
-// const mapStateToProps = state =>
-// const mapDispatchToProps = dispatch =>
-
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(AllFacts);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AllFacts);
 
