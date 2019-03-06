@@ -1,1 +1,1 @@
-export const getFacts = state => state.ron.fetch;
+export const getFacts = state => state.ron.facts;
