@@ -29,6 +29,6 @@ describe('thunk middleware', () => {
     const action = jest.fn();
     store.dispatch(action);
 
-    expect(action).toHaveBeenCalled(expect.any(Function), store.getState);
+    expect(action).toHaveBeenCalledWith(expect.any(Function), store.getState);
   });
 });
