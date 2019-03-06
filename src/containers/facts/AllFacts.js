@@ -11,8 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch(count) {
-    dispatch(fetchFacts(count));
+  fetch() {
+    dispatch(fetchFacts(10));
   }
 });
 
@@ -23,7 +23,7 @@ class AllFacts extends PureComponent {
     };
   
     componentDidMount() {
-      this.props.fetch(20);
+      this.props.fetch();
     }
   
     render() {
