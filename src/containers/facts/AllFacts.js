@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { fetchFacts, updateLoading } from '../../action/ron';
 import Facts from '../../components/facts/Facts';
 import { connect } from 'react-redux';
-import { getFacts, getLoadingStatus } from '../../selectors/ron';
+import { getFacts, isLoading } from '../../selectors/ron';
 import WithFetch from '../../components/facts/Loading';
 
 const LoadingWithFetch = WithFetch(Facts);
@@ -21,15 +21,16 @@ class AllFacts extends PureComponent {
 
   render() {
     return (
-      <LoadingWithFetch { ...this.props }/>
-      // <Facts {...this.props}/>
+      <>
+      {<LoadingWithFetch { ...this.props } />}
+      </>
     );
   }
 }
 
 const mapStateToProps = state => ({
   facts: getFacts(state),
-  loading: getLoadingStatus(state)
+  loading: isLoading(state)
 });
 
 const mapDispatchToProps = dispatch => ({
