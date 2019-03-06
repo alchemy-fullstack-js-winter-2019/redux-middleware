@@ -10,3 +10,11 @@ export const fetchFacts = count => dispatch => {
       });
     });
 };
+
+export const UPDATE_LOADING = 'UPDATE_LOADING';
+export const updateLoading = status => dispatch => {
+  dispatch({ 
+    type: UPDATE_LOADING,
+    payload: status
+  });
+};

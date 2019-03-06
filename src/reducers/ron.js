@@ -1,7 +1,8 @@
-import { FETCH_FACTS } from '../actions/ron';
+import { FETCH_FACTS, UPDATE_LOADING } from '../actions/ron';
 
 const initialState = {
-  facts: []
+  facts: [],
+  loading: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -10,6 +11,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         facts: action.payload
+      };
+    case UPDATE_LOADING:
+      return {
+        ...state,
+        loading: action.payload
       };
     default: 
       return state;
