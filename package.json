@@ -7,7 +7,9 @@
     "test": "jest --verbose",
     "test:watch": "npm run test -- --watch",
     "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "lint": "eslint .",
+    "pretest": "npm run lint"
   },
   "jest": {
     "moduleNameMapper": {
