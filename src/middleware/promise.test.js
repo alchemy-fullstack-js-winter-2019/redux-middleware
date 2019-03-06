@@ -7,7 +7,7 @@ describe('promise middleware', () => {
   });
 
   it('returns true if passed a promise', () => {
-    const result = Promise.resolve(isPromise(123));
+    const result = isPromise(Promise.resolve(123));
     expect(result).toBeTruthy();
   });
 });
