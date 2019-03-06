@@ -11,7 +11,7 @@ class AllFacts extends PureComponent {
     facts: PropTypes.array.isRequired,
     fetch: PropTypes.func.isRequired
 
-  }
+  };
   componentDidMount() {
     this.props.fetch();
   }
