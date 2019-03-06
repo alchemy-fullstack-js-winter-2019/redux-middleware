@@ -1,6 +1,5 @@
 import { isPromise, promiseMiddleware } from './promise';
-import { applyMiddleware } from 'redux';
-import { createStore } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
 
 describe('isPromise', () => {
   it('returns false if not passed a promise', () => {
@@ -40,10 +39,11 @@ describe('isPromise', () => {
           type: 'LOAD_START'
         });
         expect(reducer).toHaveBeenCalledWith(undefined, {
-          type: 'MY_ACTION'
+          type: 'LOAD_END'
         });
         expect(reducer).toHaveBeenCalledWith(undefined, {
-          type: 'LOAD_END'
+          type: 'MY_ACTION',
+          payload: 123
         });
       });
     });

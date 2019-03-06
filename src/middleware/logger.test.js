@@ -21,6 +21,6 @@ describe('logging middleware', () => {
 
     logger(store)(next)(action);
 
-    expect(console.log).toHaveBeenCalledWith('action type & state', 'CREATE_ACTION', 'some action');
+    expect(console.log).toHaveBeenCalledWith('INCOMING_ACTION', action);
   });
 });
