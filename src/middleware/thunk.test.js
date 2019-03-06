@@ -13,14 +13,16 @@ describe('thunk middleware', () => {
         thunk
       )
     );
-
   });
+  
   it('behaves normally when action is an object', () => {
     const action = {
-      type: 'MY_ACTION',
+      type: 'MY_ACTION'
     };
-    thunk(store)(jest.fn())(action);
-    expect(jest.fn()).toHaveBeenCalledWith(action);
+    const next = jest.fn();
+
+    thunk(store)(next)(action);
+    expect(next).toHaveBeenCalledWith(action);
   });
 
   it('invokes action if action is a function', () => {
