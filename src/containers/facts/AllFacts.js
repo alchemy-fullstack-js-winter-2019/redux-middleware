@@ -8,7 +8,8 @@ import { getFacts } from '../../selectors/ron';
 class AllFacts extends PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
-    fetch: PropTypes.func.isRequired
+    fetch: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired
   };
 
   componentDidMount() {
