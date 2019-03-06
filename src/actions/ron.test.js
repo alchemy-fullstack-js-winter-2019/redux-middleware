@@ -14,7 +14,7 @@ describe('ron action', () => {
     store.dispatch(fetchFacts(10));
 
     setTimeout(() => {
-      expect(reducer).toHaveBeenCalledTimes(2);
+      expect(reducer).toHaveBeenCalledTimes(4);
       expect(reducer).toHaveBeenCalledWith(undefined, {
         type: FETCH_FACTS,
         payload: ['a fact']

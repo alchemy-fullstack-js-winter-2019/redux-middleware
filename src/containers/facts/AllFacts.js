@@ -15,7 +15,7 @@ class AllFacts extends React.PureComponent {
   };
   
   componentDidMount() {
-    this.props.fetch(20);
+    this.props.fetch();
   }
 
   render() {
@@ -33,8 +33,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetch(count) {
-    return fetchFacts(count)(dispatch);
+  fetch() {
+    return dispatch(fetchFacts(20));
   }
 });
 
