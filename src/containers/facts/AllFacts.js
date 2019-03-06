@@ -12,7 +12,7 @@ class AllFacts extends PureComponent {
   };
 
   componentDidMount() {
-    this.props.fetch(100);
+    this.props.fetch(25);
   }
   
   render() {

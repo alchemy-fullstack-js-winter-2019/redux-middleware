@@ -5,7 +5,7 @@ function Facts({ facts }) {
   const listOfFacts = facts.map(fact => {
     return <li key={fact}>{fact}</li>;
   });
-  
+
   return (
     <ul>{listOfFacts}</ul>
   );
