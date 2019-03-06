@@ -7,7 +7,6 @@ export const fetchFacts = count => dispatch => {
       dispatch({
         type: FETCH_FACTS,
         payload: facts
-
       });
     });
 };

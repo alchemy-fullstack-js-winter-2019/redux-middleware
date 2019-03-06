@@ -1,4 +1,4 @@
-import { FETCH_FACTS } from '../actions/ron';
+import { FETCH_FACTS } from '../action/ron';
 const initialState = {
   facts: []
 };
