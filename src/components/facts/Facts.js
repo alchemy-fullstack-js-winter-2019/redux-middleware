@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Loader from '../Loader';
 
 function Facts({ facts }) {
   const factsList = facts.map(fact => <li key={fact}>{fact}</li>);
   return (
-    <ol>
-      {factsList}
-    </ol>
+    <>
+      {!factsList && <Loader/>}
+      <ol>
+        {factsList}
+      </ol>
+    </>
   );
 }
 
