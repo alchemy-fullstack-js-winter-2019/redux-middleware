@@ -3,24 +3,24 @@ import React, { PureComponent } from 'react';
 import { getFacts, getLoading } from '../../selectors/ron';
 import Facts from '../../components/facts/Facts';
 import PropTypes from 'prop-types';
-import { fetchFacts, updateLoading } from '../../action/ron';
+import { fetchFacts } from '../../action/ron';
 
 class AllFacts extends PureComponent {
   static propTypes = {
     facts: PropTypes.array.isRequired,
     fetch: PropTypes.func.isRequired,
-    loading: PropTypes.func.isRequired
   };
 
   componentDidMount() {
-    this.props.loading(true);
-    this.props.fetch(10)
-      .then(() => this.props.loading(false));
+    this.props.fetch(10);
   }
   
   render() {
     return (
-      <Facts facts={this.props.facts}/>
+      <>
+        {/* {loading && <p>loading is true</p>} */}
+        <Facts facts={this.props.facts}/>
+      </>
     );
   }
 }
@@ -33,9 +33,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetch(count) {
     return fetchFacts(count)(dispatch);
-  },
-  loading(boolean) {
-    return updateLoading(boolean)(dispatch);
   }
 });
 
