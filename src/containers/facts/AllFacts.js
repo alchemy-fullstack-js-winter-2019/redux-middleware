@@ -16,6 +16,7 @@ class AllFacts extends PureComponent {
     this.props.fetch();
   }
   render() {
+    console.log('facts ...', this.props.facts);
     return (<Facts facts={this.props.facts}/>);
   }
 }

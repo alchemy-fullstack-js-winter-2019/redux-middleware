@@ -1,2 +1,2 @@
 
-export const getFacts = state => state.facts;
+export const getFacts = state => state.ron.facts;
