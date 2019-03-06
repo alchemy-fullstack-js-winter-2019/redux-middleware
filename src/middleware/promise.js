@@ -22,6 +22,7 @@ export const promiseMiddleware = ({ dispatch }) => next => (action) => {
       type,
       payload
     });
+    dispatch({ type: loadEnd });
   })
     .catch(err => {
       dispatch({
