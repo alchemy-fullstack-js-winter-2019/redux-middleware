@@ -1,10 +1,11 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { getFacts, getLoading } from '../../selectors/ron';
+import { getFacts, isLoading } from '../../selectors/ron';
 import { fetchFacts } from '../../actions/ron';
 import Facts from '../../components/facts/Facts';
 import Loading from '../../components/Loading';
 import PropTypes from 'prop-types';
+import '../../components/app/App.css';
 
 class AllFacts extends React.PureComponent {
   static propTypes = {
@@ -28,7 +29,7 @@ class AllFacts extends React.PureComponent {
 }
 const mapStateToProps = state => ({
   facts: getFacts(state),
-  loading: getLoading(state)
+  loading: isLoading(state)
 });
 
 const mapDispatchToProps = dispatch => ({

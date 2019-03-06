@@ -1,7 +1,21 @@
-.background {
-  background-color: black;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
+* {
+  font-family: 'montserrat';
+  .img {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .background {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  h1 {
+    text-align: center;
+  }
+  li {
+    list-style-type: none;
+    padding: 10px;
+  }
 }
