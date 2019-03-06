@@ -1,21 +1,18 @@
-import React, { Component } from 'react';
-import { getFacts} from '../../services/__mocks__/ronApi';
+import React from 'react';
+// import { getFacts} from '../../services/__mocks__/ronApi';
+import PropTypes from 'prop-types';
 
-export default function Blah() extends Component {
-  state = {
-    facts:''
-  };
-
-  handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
-  };
-  
-  render() {
-    const { facts } = this.state;
-    return(
-      <>
-      <ul>{listOfFacts}</ul>
-      </>
-    ); 
-   }
-}
+const Facts = ({ facts }) => {
+  const listOfFacts = facts.map(fact => {
+    return (
+      <li key={fact}>{fact}</li>
+    );
+  });
+  return (
+    <ul>{listOfFacts}</ul>
+  );
+};
+Facts.propTypes = {
+  facts: PropTypes.array
+};
+export default Facts;
