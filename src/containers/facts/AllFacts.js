@@ -7,6 +7,7 @@ import { withFetch } from '../../components/withFetch';
 
 const mapStateToProps = (state) => ({
   facts: getFacts(state),
+  // eslint-disable-next-line no-undef
   isLoading: isLoading(state)
 });
 

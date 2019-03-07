@@ -1,11 +1,11 @@
 export function defaultEquality(prevArgs, nextArgs) {
   return prevArgs.length === nextArgs.length && 
     prevArgs.every((arg, i) => {
-    return arg === nextArgs[i];
-  });
+      return arg === nextArgs[i];
+    });
 }
 
-export function memoize(fn, equalityFn= defaultEquality) {
+export function memoize(fn, equalityFn = defaultEquality) {
   let lastArgs = null;
   let lastResult = null;
 
