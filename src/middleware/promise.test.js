@@ -1,4 +1,5 @@
-import { isPromise } from './promise';
+import { isPromise, promiseMiddleware } from './promise';
+import { createStore, applyMiddleware } from 'redux';
 
 
 describe('promise middleware', () => {
@@ -18,9 +19,34 @@ describe('promise middleware', () => {
     let store = null;
 
     beforeEach(() => {
+      reducer = jest.fn();
+      store = createStore(
+        reducer, 
+        applyMiddleware(promiseMiddleware)
+      );
+    });
+    
+    it('dispatches actions at the promise resolve', () => {
+      const promise = Promise.resolve(123);
+      const action = {
+        type: 'ACTION',
+        payload: promise
+      };
+      store.dispatch(action);
 
-    })
-    it('dis')
-  })
+      return promise.then(() => {
+        expect(reducer).toHaveBeenCalledWith(undefined, {
+          type: 'LOAD_START'
+        });
+        expec t(reducer).toHaveBeenCalledWith(undefined, {
+          type: 'LOAD_END'
+        });
+        expect(reducer).toHaveBeenCalledWith(undefined, {
+          type: 'MY_ACTION',
+          payload:123
+        });
+      });
+    });
+  });
 });
 
