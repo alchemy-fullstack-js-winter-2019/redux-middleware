@@ -1,8 +1,8 @@
 import Facts from '../components/facts/Facts';
 import { connect } from 'react-redux';
 import { getFacts, isLoading } from '../selectors/ron';
-import { fetchFacts } from '../actions/fetchFacts';
-import { withFetch } from '../../components/withFetch';
+import { fetchFactsWithPromise } from '../actions/ron';
+import { withFetch } from '../components/withFetch';
 
 
 const mapStateToProps = state => ({
@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetch() {
-    dispatch(fetchFacts(10));
+    dispatch(fetchFactsWithPromise(10));
   }
 });
 const AllFacts = withFetch(Facts);
