@@ -6,7 +6,9 @@ function Facts({ facts }) {
 
   return (
     <>
-    {listOfFacts}
+    <ul>
+      {listOfFacts}
+    </ul>
     </>
   );
 }
