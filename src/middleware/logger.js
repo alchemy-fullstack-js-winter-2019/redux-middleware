@@ -3,7 +3,7 @@
 // all actions go through the middleware
 
 export const logger = store => next => action => {
-
+  console.log('INCOMING ACTION', action);
   const prevState = store.getState();
   next(action); /*passes the action to the reducer to update state*/
   const nextState = store.getState();

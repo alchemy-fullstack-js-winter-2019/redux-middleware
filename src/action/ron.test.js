@@ -15,7 +15,7 @@ describe('reducer', () => {
     store.dispatch(fetchFacts(10));
     
     setTimeout(() => {
-      expect(reducer).toHaveBeenCalledTimes(2);
+      expect(reducer).toHaveBeenCalledTimes(3);
       expect(reducer).toHaveBeenCalledWith(undefined, {
         type: FETCH_FACTS,
         payload: ['my fact']
