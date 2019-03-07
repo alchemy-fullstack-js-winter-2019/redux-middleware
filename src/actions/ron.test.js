@@ -4,6 +4,7 @@ import { fetchFactsWithPromise, FETCH_FACTS } from './ron';
 
 
 
+
 jest.mock('../services/ronApi');
 
 describe('ron actions test', () => {
@@ -18,7 +19,7 @@ describe('ron actions test', () => {
     setTimeout(() => {
       expect(reducer).toHaveBeenCalledWith(undefined, {
         type: FETCH_FACTS,
-        payload: ['ron has awesome facts']
+        payload: ['my facts']
       });
       done();
     }, 500);
