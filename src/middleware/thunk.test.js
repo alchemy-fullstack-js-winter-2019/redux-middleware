@@ -22,14 +22,14 @@ describe('thunk middleware', () => {
     const next = jest.fn();
 
     thunk(store)(next)(action);
-    expect(next).toHaveBeenCalledWith(action)
+    expect(next).toHaveBeenCalledWith(action);
   });
   
   it('invokes action if action is a function', () => {
     const action = jest.fn();
     store.dispatch(action);
 
-    expect(action).toHaveBeenCalledWith(expect.any(Function), store.getState)
+    expect(action).toHaveBeenCalledWith(expect.any(Function), store.getState);
   });
 });
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // logs the action everytime an action is dispatched
 // middleware is what happens when you have an action
 // all actions go thru middleware
