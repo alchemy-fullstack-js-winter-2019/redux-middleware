@@ -1,9 +1,10 @@
 import { createStore, applyMiddleware } from 'redux';
 import { middleware } from '../middleware';
-import { fetchFacts, FETCH_FACTS } from './ron';
+import { fetchFactsWithPromise, FETCH_FACTS, FETCH_FACTS_LOADING  } from './ron';
 
 
-jest.mock('../services/__mocks__/ronApi');
+
+jest.mock('../services/ronApi');
 
 describe('ron actions test', () => {
   it('can fetch facts', done => {
@@ -12,7 +13,7 @@ describe('ron actions test', () => {
       reducer,
       applyMiddleware(...middleware)
     );
-    store.dispatch(fetchFacts(1));
+    store.dispatch(fetchFactsWithPromise(10));
 
     setTimeout(() => {
       expect(reducer).toHaveBeenCalledWith(undefined, {
