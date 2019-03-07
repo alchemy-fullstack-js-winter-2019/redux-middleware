@@ -2,18 +2,28 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 
-export const withFetch = component => {
+export const withFetch = Component => {
     class withFetch extends PureComponent {
-        static PropTypes = {
-            fetch: PropTypes.func.isRequired
+        static propTypes = {
+            fetch: PropTypes.func.isRequired,
+            isLoading: PropTypes.bool.isRequired
 
         };
 
         componentDidMount() {
-            // this.props.fetch();
+            this.props.fetch();
         }
         render() {
-            return <component {...this.props}/>;
+            const { isLoading } = this.props;
+
+            return (
+                <>
+                {isLoading ?
+                    <h1>LOADING!!!!</h1 >
+                    : <Component {...this.props} />}
+                </>
+
+            );
         }
 
     }
