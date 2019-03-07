@@ -1,0 +1,8 @@
+* {
+  font-family: sans-serif;
+  list-style: none;
+  text-align: center;
+  li {
+    padding: 10px;
+  }
+}
