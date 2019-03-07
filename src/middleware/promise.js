@@ -16,18 +16,19 @@ export const promiseMiddleware = ({ dispatch }) => next => action => {      cons
 if(!isPromise(action.payload)) {
   return next(action);
 }
-dispatch({ type: LOAD_START });
+dispatch({ type: loadStart });
 action.payload.then(payload => {
-  dispatch({ type: LOAD_END });
   dispatch({
-    type: action.type,
+    type,
     payload
   });
+  dispatch({ type: loadEnd });
 })
   .catch(err => {
     dispatch({
-      type: PROMISE_ERROR,
+      type: errorType,
       payload: err
     });
+    dispatch({ type: loadEnd });
   });
 };
