@@ -1,0 +1,44 @@
+MiddleWare
+- function that takes a store as an argument takes next as an argument and takes an action as another function
+- any fucntion that happends between actions and reducer
+- logger log every time action 
+- will use middleware to do asych action
+- Eventually, actions to check payload or action to see if it's a function to see if we need to do it asych
+- all actions go through middleware
+- Thunk middleware  
+  - expects dispatches to be functions - if action is a function
+  - if it's a function it will do some other things, if not a function calls next and behaves normally
+- 
+
+Actions can be functions that take dispatch - they take dispatch because they can dispatch plan 
+
+thunk middleware checks if it's a function or not
+when function invoked makes API call and dispatched a synchronouse action
+
+LOADING
+if I am loading, will display <h1> loadin </h1> otherwise will display facts
+- {isLoading ? <h1>LOADING</h1>: <Facts={this.props.facts}} />}
+
+To get loacing to workin in action creator added a new action type, triggered when we want the loading screen to display. Then dispatch loading, reducer handles the fetch facts loading by handling the state to false
+makde a change in reducer and in containers add loading
+- when get the set facts action loadin is done - this is why it's false
+
+WithFetchHigherOrderComponent
+- root create a withFetch.js
+- Taking all facts as baseline
+- withFetch expects to get a static props types
+  - fetch function
+- componentDidMount //this handles doing the fetch
+  - thisprops.fetch()
+- render comopnent with all props
+  
+pipe operator 
+FACTS |> withFetch |> withPagination
+
+//promise middlware handle dispatching a fetch facts loading and a fetch facts error
+//if payload is a promise will do something else
+//
+export const fetchFactsPromiseStyle = count => ({
+  type: FETCH_FACTS,
+  payload: getFacts(count)
+})
