@@ -9,15 +9,15 @@ export const fetchFactsWithPromise = count => ({
   payload: getFacts(count)
 });
 
-export const fetchFacts = count => dispatch => {
-  dispatch({
-    type:FETCH_FACTS_LOADING 
-  });
-  return getFacts(count)
-    .then(facts => {
-      dispatch({
-        type: FETCH_FACTS,
-        payload: facts
-      });
-    });
-};
+// export const fetchFacts = count => dispatch => {
+//   dispatch({
+//     type:FETCH_FACTS_LOADING 
+//   });
+//   return getFacts(count)
+//     .then(facts => {
+//       dispatch({
+//         type: FETCH_FACTS,
+//         payload: facts
+//       });
+//     });
+// };
