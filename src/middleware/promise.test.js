@@ -38,11 +38,11 @@ describe('promise middleware', () => {
         expect(reducer).toHaveBeenCalledWith(undefined, {
           type: 'LOAD_START'
         });
-        expec t(reducer).toHaveBeenCalledWith(undefined, {
+        expect(reducer).toHaveBeenCalledWith(undefined, {
           type: 'LOAD_END'
         });
         expect(reducer).toHaveBeenCalledWith(undefined, {
-          type: 'MY_ACTION',
+          type: 'ACTION',
           payload:123
         });
       });
