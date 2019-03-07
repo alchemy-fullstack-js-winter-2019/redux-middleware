@@ -1,6 +1,7 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
+// eslint-disable-next-line
 module.exports = {
   entry: ['@babel/polyfill', './src/index.js'],
   output: {
@@ -57,7 +58,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpeg|jpg|png|svg)$/,
+        test: /\.(jpeg|jpg|png|svg|gif)$/,
         use: {
           loader: 'url-loader',
           options: { limit: 1000 },
