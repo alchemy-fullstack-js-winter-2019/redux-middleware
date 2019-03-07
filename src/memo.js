@@ -1,9 +1,8 @@
 export function defaultEquality(prevArgs, CurrentArgs) {
   return prevArgs.every((arg, i) => {
     //the every method returns true or false if every arg is the same
-    return arg === CurrentArgs;
-  })
-
+    return arg === CurrentArgs[i];
+  });
 }
 
 
@@ -17,8 +16,8 @@ export function memoize(fn, equalityFn = defaultEquality){
     if(lastArg && equalityFn(lastArg, currentArguments)){
       return lastArg;
     }
-    lastArg = currentArguments
+    lastArg = currentArguments;
     lastResult - fn(...currentArguments);
-    return lastResult
-  }
+    return lastResult;
+  };
 }

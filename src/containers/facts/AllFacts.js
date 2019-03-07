@@ -16,6 +16,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class AllFacts extends PureComponent {
+  //this is confusing because facts is already expected as a prop from our Facts component.
   static propTypes = {
     facts: PropTypes.array.isRequired,
     fetch: PropTypes.func.isRequired
