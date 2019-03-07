@@ -1,4 +1,4 @@
-export const getFacts = count => {
+export const getFacts = () => {
   return Promise.resolve([
     'my fact'
   ]);
