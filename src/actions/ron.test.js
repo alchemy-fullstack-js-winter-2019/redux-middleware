@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { middleware } from '../middleware';
-import { fetchFactsWithPromise, FETCH_FACTS, FETCH_FACTS_LOADING  } from './ron';
+import { fetchFactsWithPromise, FETCH_FACTS } from './ron';
 
 
 
@@ -18,7 +18,7 @@ describe('ron actions test', () => {
     setTimeout(() => {
       expect(reducer).toHaveBeenCalledWith(undefined, {
         type: FETCH_FACTS,
-        payload: ['here is a fact']
+        payload: ['ron has awesome facts']
       });
       done();
     }, 500);
