@@ -2,6 +2,7 @@ import Facts from '../components/facts/Facts';
 import { connect } from 'react-redux';
 import { getFacts, isLoading } from '../selectors/ron';
 import { fetchFacts } from '../actions/fetchFacts';
+import { withFetch } from '../../components/withFetch';
 
 
 const mapStateToProps = state => ({
@@ -14,7 +15,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(fetchFacts(10));
   }
 });
-const AllFacts = Facts;
+const AllFacts = withFetch(Facts);
 
 export default connect(
   mapStateToProps,
