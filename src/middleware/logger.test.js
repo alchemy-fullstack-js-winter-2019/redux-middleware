@@ -1,6 +1,6 @@
 import { logger } from './logger';
 
-describe('loggin middleware', () => {
+describe('logger middleware', () => {
   it('logs an action', () => {
     console.log = jest.fn();
     const store = {
