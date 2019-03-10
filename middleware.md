@@ -9,7 +9,7 @@
 Redux middleware takes the following form:
 
 ```js
-const myMiddleware = store => next => action {
+const myMiddleware = store => next => action => {
 
 }
 ```
