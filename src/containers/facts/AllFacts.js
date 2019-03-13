@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
 import Facts from '../../components/facts/Facts';
-import { getFacts } from '../../selectors/ron';
+import { getFacts, isLoading } from '../../selectors/ron';
 import { fetchFacts } from '../../action/ron';
 import { withFetch } from '../../components/withFetch';
 
 
 const mapStateToProps = (state) => ({
   facts: getFacts(state),
-  // eslint-disable-next-line no-undef
   isLoading: isLoading(state)
 });
 
