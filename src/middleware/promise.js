@@ -7,7 +7,7 @@ export const promiseMiddleware = store => next => action => {
     return next(action);
   }
 
-  store.dispatch({ type: 'LOADSTART' });
+  store.dispatch({ type: 'LOAD_START' });
 
   action.payload.then(result => {
     store.dispatch({ type: 'LOAD_END' });
